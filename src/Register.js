@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Alert } from 'react-native';
-import { Box, Button, HStack, Checkbox, NativeBaseProvider, StatusBar, Text, VStack, Pressable, Badge, Spacer, Radio, ScrollView, Center, useToast, FormControl, Stack, Input, WarningOutlineIcon } from "native-base";
+import { Box, Button, HStack, Checkbox, NativeBaseProvider, StatusBar, Text, VStack, IconButton, Badge, Spacer, Radio, ScrollView, Center, useToast, FormControl, Stack, Input, WarningOutlineIcon } from "native-base";
 import Icon from 'react-native-vector-icons/Ionicons';
 
 
@@ -73,6 +73,26 @@ function FormRegister() {
   </Box>;
 };
 
+class AppBar extends Component {
+    render() {
+      return (<>
+        <StatusBar bg="#3700B3" barStyle="light-content" />
+        <Box safeAreaTop bg="violet.600" />
+        <HStack bg="violet.600" px="1" py="3" justifyContent="space-between" alignItems="center" w="100%">
+          <HStack alignItems="center">
+            <IconButton icon={<Icon name="ios-reorder-three" size={30} color="#FFF" />} />
+            <Text color="white" fontSize="20" fontWeight="bold">
+              {this.props.judul} {this.props.judul2} 
+            </Text>
+  
+          </HStack>
+        </HStack>
+      </>
+    );
+    }
+    
+  }
+
 export default class Register extends Component {
   constructor(props) {
     super(props);
@@ -87,10 +107,10 @@ export default class Register extends Component {
     }
   }
 
-  registrasi(nama_lengkap, email,no_handphone) {
+  registrasi(a, b, c) {
     Alert.alert(
       'Perhatian!',
-      'Nama: ' + nama_lengkap + '\n'+ 'E-Mail: ' + email+ '\n'+'No. Handphone: '+ no_handphone,
+      'Nama: ' + a + '\n'+ 'E-Mail: ' + b+ '\n'+'No. Handphone: '+ c,
       [
         { text: 'Ok' },
       ]
@@ -100,6 +120,7 @@ export default class Register extends Component {
   render() {
     return (
       <NativeBaseProvider>
+        <AppBar judul={this.props.judulnya} judul2={this.props.judullagi}/>
         <ScrollView>
           <Center>
             <Text bold fontSize="4xl">Formulir Pendaftaran</Text>
@@ -110,7 +131,7 @@ export default class Register extends Component {
               <FormControl isRequired>
                 <Stack>
                   <FormControl.Label>Nama Lengkap</FormControl.Label>
-                  <Input type="text" defaultValue="xxx" placeholder="Nama Lengkap" onChangeText={namanya => this.setState({ nama_lengkap: namanya })} />
+                  <Input type="text" defaultValue="xxx" placeholder="Nama Lengkap" onChangeText={namanya => this.setState({ nama_lengkap: namanya })} size="2xl" />
                 </Stack>
                 <Stack>
                   <FormControl.Label>No. Handphone</FormControl.Label>
