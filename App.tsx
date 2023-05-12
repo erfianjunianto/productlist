@@ -12,6 +12,7 @@ import {
   Center } from "native-base";
 
 import Icon from 'react-native-vector-icons/Ionicons';
+import Login from './src/Login.js';
 
 export default function App() {
   // 2. Use at the root of your app
@@ -33,11 +34,12 @@ export default function App() {
   return (
     <NativeBaseProvider>
       <AppBar />
-      <Box flex={1} bg="#fff" alignItems="center" justifyContent="center">
+      {/* <Box flex={1} bg="#fff" alignItems="center" justifyContent="center">
         <Text>Open up App.js to start working on your app!</Text>
         <Button >Click Me</Button>
         <Checkbox value="test" accessibilityLabel="This is a dummy checkbox" />
-      </Box>
+      </Box> */}
+      <Login />
     </NativeBaseProvider>
   );
 }
