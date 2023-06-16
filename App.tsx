@@ -15,30 +15,31 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import Login from './src/Login.js';
 import Register from './src/Register.js';
 
-class AppBar extends Component {
-  render() {
-    return (<>
-      <StatusBar bg="#3700B3" barStyle="light-content" />
-      <Box safeAreaTop bg="violet.600" />
-      <HStack bg="violet.600" px="1" py="3" justifyContent="space-between" alignItems="center" w="100%">
-        <HStack alignItems="center">
-          <IconButton icon={<Icon name="ios-reorder-three" size={30} color="#FFF" />} />
-          <Text color="white" fontSize="20" fontWeight="bold">
-            {this.props.judul}
-          </Text>
 
-        </HStack>
-      </HStack>
-    </>
-  );
+
+export default class App extends Component {
+  // 2. Use at the root of your app
+  constructor(props){
+   super(props);
+   this.state = {
+    dataApi:'',
+   }
+    this.getData();
   }
-  
+
+  getData = () => {
+    fetch('https://api.publicapis.org/entries', {
+        method: 'GET',
+        headers: {}
+    }).then((response) => response.json()).then((responseData) => {
+        // console.log(responseData['count']);
+        this.setState({ dataApi: responseData['entries'][1]['API']});
+        
+    });
 }
 
-export default function App() {
-  // 2. Use at the root of your app
-  
-  return (
+render() {
+  return(
     <NativeBaseProvider>
       {/* <AppBar judul="Bebas Te"/> */}
       
@@ -48,7 +49,8 @@ export default function App() {
         <Checkbox value="test" accessibilityLabel="This is a dummy checkbox" />
       </Box> */}
       {/* <Login /> */}
-      <Register judulnya="bebas" judullagi="SI" />
+      <Register paramX={this.state.dataApi} paramY="Application" paramZ="ARS U"/>
     </NativeBaseProvider>
   );
+}
 }

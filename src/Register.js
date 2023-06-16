@@ -82,7 +82,7 @@ class AppBar extends Component {
           <HStack alignItems="center">
             <IconButton icon={<Icon name="ios-reorder-three" size={30} color="#FFF" />} />
             <Text color="white" fontSize="20" fontWeight="bold">
-              {this.props.judul} {this.props.judul2} 
+              {this.props.judul} {this.props.judul2} {this.props.judul3}
             </Text>
   
           </HStack>
@@ -120,7 +120,8 @@ export default class Register extends Component {
   render() {
     return (
       <NativeBaseProvider>
-        <AppBar judul={this.props.judulnya} judul2={this.props.judullagi}/>
+        <StatusBar backgroundColor={"#3700B3"} />
+        <AppBar judul={this.props.paramX} judul2={this.props.paramY} judul3={this.props.paramZ}/>
         <ScrollView>
           <Center>
             <Text bold fontSize="4xl">Formulir Pendaftaran</Text>
@@ -131,15 +132,18 @@ export default class Register extends Component {
               <FormControl isRequired>
                 <Stack>
                   <FormControl.Label>Nama Lengkap</FormControl.Label>
-                  <Input type="text" defaultValue="xxx" placeholder="Nama Lengkap" onChangeText={namanya => this.setState({ nama_lengkap: namanya })} size="2xl" />
+                  <Input type="text" defaultValue="xxx" placeholder="Nama Lengkap" 
+                  onChangeText={namanya => this.setState({ nama_lengkap: namanya })} size="2xl" />
                 </Stack>
                 <Stack>
                   <FormControl.Label>No. Handphone</FormControl.Label>
-                  <Input type="text" defaultValue="0" placeholder="0812" onChangeText={text => this.setState({ no_handphone: text })}/>
+                  <Input type="text" defaultValue="0" placeholder="0812" size="2xl"
+                  onChangeText={text => this.setState({ no_handphone: text })}/>
                 </Stack>
                 <Stack>
                   <FormControl.Label>E-Mail</FormControl.Label>
-                  <Input type="text" defaultValue="" placeholder="test@gmail.com" onChangeText={text => this.setState({ email: text })} />
+                  <Input type="text" defaultValue="" placeholder="test@gmail.com" 
+                  onChangeText={text => this.setState({ email: text })} />
                 </Stack>
                 <Stack>
                   <FormControl.Label>Jenis Kelamin</FormControl.Label>
