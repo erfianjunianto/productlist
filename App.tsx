@@ -15,6 +15,7 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import Login from './src/Login.js';
 import Register from './src/Register.js';
 import News from "./src/News.js";
+import NewsDetail from "./src/NewsDetail.js";
 
 
 
@@ -52,6 +53,7 @@ render() {
       {/* <Login /> */}
       {/* <Register paramX={this.state.dataApi} paramY="Application" paramZ="ARS U"/> */}
       <News />
+      {/* <NewsDetail newsID="13" /> */}
     </NativeBaseProvider>
   );
 }
