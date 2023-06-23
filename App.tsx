@@ -14,6 +14,7 @@ import {
 import Icon from 'react-native-vector-icons/Ionicons';
 import Login from './src/Login.js';
 import Register from './src/Register.js';
+import News from "./src/News.js";
 
 
 
@@ -49,7 +50,8 @@ render() {
         <Checkbox value="test" accessibilityLabel="This is a dummy checkbox" />
       </Box> */}
       {/* <Login /> */}
-      <Register paramX={this.state.dataApi} paramY="Application" paramZ="ARS U"/>
+      {/* <Register paramX={this.state.dataApi} paramY="Application" paramZ="ARS U"/> */}
+      <News />
     </NativeBaseProvider>
   );
 }
